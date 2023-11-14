@@ -4,7 +4,7 @@ import routes from './config/routes'
 
 function App() {
   return (
-    useRoutes(routes)
+    useRoutes(routes) /// useRoutes fonksiyonu, belirli rotaları kullanarak bir uygulama rotasını oluşturur. O rotanın içeriğini ekrana render eder
   );
 }
 

@@ -5,14 +5,17 @@ class FormComponent extends Component {
   constructor(props) {
     super(props);
   }
+
+  /// isim alanına girilen metnin user kısmına setlenmesini yapıyoruz
   handleNameChange = (event) => {
     const filteredInput = onlyLettersValid(event.target.value);
     this.props.setUser(filteredInput);
   };
 
+  /// inputlar boş mu kontrolü sağlıyoruz. Eğer boşsa uyarı çıkartıyoruz. Değil ise success true olarak setliyoruz
   handleFormSubmit = (event) => {
     event.preventDefault();
-    const name = event.target.elements.name.value;
+    const name = event.target.elements.name.value; 
     const email = event.target.elements.email.value;
     if (isEmptyValid(name)) {
       this.props.setWarning([true, "İsim Alanını Boş Bırakmayınız!"]);

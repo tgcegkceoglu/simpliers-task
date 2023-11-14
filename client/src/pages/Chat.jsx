@@ -36,48 +36,54 @@ function Chat({ socket }) {
       time: "10:10",
     },
   ];
-  const [messageList, setMessageList] = useState(dummy);
+  const [messageList, setMessageList] = useState(dummy); 
 
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef(null); 
 
+  /// Mesaj atıldığı zaman scroll en aşağı inmesini sağlıyoruz
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView();
   };
 
+  /// messageData oluşturuyoruz. 
   const sendMessage = async () => {
     if (currentMessage !== "") {
       const messageData = {
         room: room,
         author: user,
         message: currentMessage,
-        time: new Intl.DateTimeFormat("tr", {
+        time: new Intl.DateTimeFormat("tr", { /// 09:05 şeklinde olması içn formatlıyoruz.
           hour: "2-digit",
           minute: "2-digit",
         }).format(Date.now()),
       };
 
-      setCurrentMessage("");
-      setMessageList((list) => [...list, messageData]);
-      await socket.emit("send_message", messageData);
+      setCurrentMessage(""); /// Mesaj gönderildikten sonra inputu temizliyoruz.
+      setMessageList((list) => [...list, messageData]); 
+      await socket.emit("send_message", messageData); /// "send_message" olayını tetiklyoruz ve verileri sunucuya iletiyoruz
     }
   };
 
+  /// Kullanıcının enter tuşuyla mesaj gönderebilmesini sağlıyoruz.
   const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter") { 
       sendMessage();
     }
   };
 
+  /// İlk açıldığında scroll en aşağıda olmasını sağlıyor
   useEffect(() => {
-    scrollToBottom();
+    scrollToBottom(); 
   }, []);
 
+  /// Mesaj gönderildiğinde scroll en aşağıda olması sağlanıyor
   useEffect(() => {
     scrollToBottom();
   }, [messageList]);
 
+  ///
   useEffect(() => {
-    socket.on("receive_message", (data) => {
+    socket.on("receive_message", (data) => { /// "receive_message" olayını dinleyerek diğer kullanıcıdan gelen mesajları messagelist ekliyoruz.
       setMessageList((list) => [...list, data]);
     });
   }, [socket]);

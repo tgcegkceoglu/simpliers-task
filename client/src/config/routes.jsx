@@ -6,6 +6,7 @@ import PrivateRoute from "../components/route/PrivateRoute";
 
 const socket = io("http://localhost:3001");
 
+/// Kullanıcının belirli sayfalara yönlendirilmesini sağlıyoruz.
 const router = [
   {
     index: true,
@@ -24,6 +25,8 @@ const router = [
   },
 ];
 
+ /// Eğer kullanıcı girişi gerekliyse  'PrivateRoute' bileşeni aracılığıyla yetkilendirme kontrolü yaparak sayfa yönlendirmesi yapıyoruz. 
+ /// Eğer kullanıcı girişi gerekli değilse direk sayfaya yönlendiriyoruz
 function mapAuth(routes) {
   return routes.map((route) => {
     if (route?.auth) {

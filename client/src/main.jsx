@@ -5,7 +5,8 @@ import { ChatProvider } from "./context/chatContext.jsx";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ChatProvider>
+  /// ChatProvider uygulama genelinde paylaşılan chat bilgilerini yönetiyor (user,room)
+  <ChatProvider> 
     <BrowserRouter>
       <App />
     </BrowserRouter>

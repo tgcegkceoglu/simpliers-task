@@ -13,7 +13,11 @@ function Login({ socket }) {
   const [success, setSuccess] = useState(false);
   const {user,setUser, room, setRoom } = useChat();
 
+  /// eğer hata varsa setlenen metni yazdırarak error çıkartıyoruz
+  /// Eğer inputlar boş değilse chat odasını setliyoruz ve kullanıcıyı localstroge kayıt ediyoruz. refresh atıldığı zaman kullanıcı silinmesin diye. 
+  /// İşlemler bitince kullanıcıyı chat yönlendriyoruz.
   useEffect(() => {
+    
     if (warning[0]) {
       toast.error(warning[1]);
     }
