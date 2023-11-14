@@ -13,13 +13,13 @@
 
 ## Task Kurulum
 Proje dosyalarını bilgisayarınıza kopyalayın.
-# Server
+### Server
 - Teminali açınız.
 - cd server
 - yarn
 - yarn start
 
-# Client
+### Client
 - Yeni terminal açınız !!
 - cd client
 - yarn
