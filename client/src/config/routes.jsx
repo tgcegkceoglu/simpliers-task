@@ -4,7 +4,7 @@ import Chat from "../pages/Chat";
 import Page404 from "../pages/Page404";
 import PrivateRoute from "../components/route/PrivateRoute";
 
-const socket = io("http://localhost:3001"); /// Socket.IO istemcisini kullanarak belirtilen sunucu adresine bir soket bağlantısı oluşturur
+const socket = io("http://localhost:3001"); /// Socket.IO istemcisini kullanarak belirtilen sunucu adresine bir soket bağlantısı oluşturmaktadır.
 
 /// Kullanıcının belirli sayfalara yönlendirilmesini sağlıyoruz.
 const router = [
