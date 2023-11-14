@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #d6d6d6;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8f8f8f;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@layer components {
+
+    input{
+      @apply h-full w-full mt-1 px-4 sm:py-3 py-1 rounded-xl focus:outline-none text-black;
+    }
+
+    #form button{
+      @apply px-8 py-2 float-right hover:bg-[#e9901bea] text-white  rounded-xl bg-[#e9911b];
+    }
+
+    .center{
+      @apply h-screen justify-items-center items-center;
+    }
+
+    .message{
+      @apply w-min px-5 py-2
+    }
+
+    #you{
+      @apply bg-purple float-left text-white 
+    }
+
+    #other{
+      @apply bg-yellow-300 float-left text-white 
+    }
+
+    .scroll{
+      @apply md:overflow-y-auto overflow-y-hidden scroll-smooth
+    }
+
+    #chat {
+      background-image: url("assets/images/official-whatsapp-background.jpg");
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+
+    #chat button{
+      @apply ml-2 bg-purple hover:bg-[#6d63f8] text-white rounded-xl px-3 h-full
+    }
+}
